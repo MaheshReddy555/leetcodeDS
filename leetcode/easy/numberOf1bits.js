@@ -20,6 +20,16 @@ Output: 31
 Explanation: The input binary string 11111111111111111111111111111101 has a total of thirty one '1' bits.
  */
 
+//  x=7     00000111  7
+//  x=x<<1  00001110  14 (moving 1 bit means, number* 1*2)
+//  x=x<<3  01110000  112 (moving 3 bit means, number*3*2)
+//  x=x<<2  11000000  192
+
+// x = 192   11000000 192
+// x=x>>1    01100000  96 (moving 1 bit means, number/ 1*2)
+// x=x>>2    00011000  24 (moving 2 bit means, number/ 2*2)
+// x=x>>3    00000011  3
+
 //the best solution time comp - 0(1), space comp - O(1)
 var hammingWeight = function (n) {
   let count = 0;
