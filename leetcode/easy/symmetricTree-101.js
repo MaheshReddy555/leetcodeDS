@@ -35,6 +35,7 @@ But the following [1,2,2,null,3,null,3] is not:
    3    3
  */
 
+//https://www.youtube.com/watch?v=3iIpnouY-bg
 var isSymmetric = function (root) {
   //think about page folding technique, left half and right half should layover on eachother when you fold paper
   if (!root) return true;

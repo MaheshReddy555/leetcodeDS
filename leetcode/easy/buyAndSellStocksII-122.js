@@ -27,6 +27,19 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
  */
+//https://www.youtube.com/watch?v=Q-8JkdUliVM
+//this is simple
+var maxProfit = function (prices) {
+  let maxProfit = 0;
+
+  for (let i = 1; i < prices.length; i++) {
+    if (prices[i] > prices[i - 1]) {
+      maxProfit += prices[i] - prices[i - 1];
+    }
+  }
+  return maxProfit;
+};
+
 var maxProfit = function (prices) {
   let goforward = false;
 

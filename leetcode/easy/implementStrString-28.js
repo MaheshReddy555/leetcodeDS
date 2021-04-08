@@ -25,6 +25,10 @@ Example 3:
 Input: haystack = "", needle = ""
 Output: 0
  */
+
+//  there is Knuth–Morris–Pratt(KMP) Pattern Matching algorithm which gives BigO as O(m +n), but it is tough
+
+//Below solution is O(mn)
 var strStr = function (haystack, needle) {
   if (haystack === needle) return 0;
   if (needle === "") return 0;

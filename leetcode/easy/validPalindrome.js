@@ -14,6 +14,35 @@ Example 2:
 Input: "race a car"
 Output: false
  */
+
+//using regex, looks promising
+var isPalindrome = function (s) {
+  let p1 = 0;
+  let p2 = s.length - 1;
+
+  while (p1 < p2) {
+    while (p1 < p2 && !isvalidChar(s[p1].toLowerCase())) {
+      p1++;
+    }
+    while (p1 < p2 && !isvalidChar(s[p2].toLowerCase())) {
+      p2--;
+    }
+    if (s[p1].toLowerCase() !== s[p2].toLowerCase()) {
+      return false;
+    }
+
+    p1++;
+    p2--;
+  }
+  return true;
+};
+
+var isvalidChar = function (cha) {
+  var regex = /[a-z]|[0-9]/;
+  console.log("in char func", cha, regex.test(cha));
+  return regex.test(cha);
+};
+
 var isPalindrome = function (s) {
   var letters = /^[A-Za-z]+$/;
   s = s.toLowerCase();

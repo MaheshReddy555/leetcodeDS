@@ -20,6 +20,22 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
  */
+
+//this is easy to understand
+//first find min value to buy, if number higher than min then sell it
+var maxProfit = function (prices) {
+  let sellProfit = 0;
+  let minBuy = Infinity;
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < minBuy) {
+      minBuy = prices[i];
+    } else if (prices[i] - minBuy > sellProfit) {
+      sellProfit = prices[i] - minBuy;
+    }
+  }
+  return sellProfit;
+};
+
 var maxProfit = function (prices) {
   let maxProfit = 0;
   let low = Infinity;

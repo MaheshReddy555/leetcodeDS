@@ -15,6 +15,21 @@ Input: strs = ["dog","racecar","car"]
 Output: ""
 Explanation: There is no common prefix among the input strings.
  */
+
+//this is simple
+var longestCommonPrefix = function (strs) {
+  if (strs.length === 0) return "";
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+    }
+  }
+  return prefix;
+};
+
+//this is giving O(n^2)
 var longestCommonPrefix = function (strs) {
   if (!strs.length) return "";
   let res = "";

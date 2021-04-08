@@ -28,6 +28,16 @@ return its depth = 3.
  * @param {TreeNode} root
  * @return {number}
  */
+
+//this works fine and looks easy
+var maxDepth = function (node, count = 0) {
+  if (node === null) return count;
+  count++;
+  let left = maxDepth(node.left, count);
+  let right = maxDepth(node.right, count);
+  return Math.max(left, right);
+};
+
 function maxDepth(node, count = 0) {
   if ((node && node.val) || (node && node.val === 0)) {
     count++;

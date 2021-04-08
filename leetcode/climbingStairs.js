@@ -22,8 +22,11 @@ Explanation: There are three ways to climb to the top.
 1. 1 step + 1 step + 1 step
 2. 1 step + 2 steps
 3. 2 steps + 1 step
+
+https://www.youtube.com/watch?v=UyDyc6yV1iQ
  */
 
+//using memoizaion like dynamic programming
 var climbStairs = function (n) {
   function countingFunc(stairsRemaining, savedResults) {
     if (stairsRemaining < 0) return 0;
@@ -37,3 +40,18 @@ var climbStairs = function (n) {
 
   return countingFunc(n, {});
 };
+
+/*
+                                        3
+                                      /   \
+                                (1 used)   (2 used)
+                                   2        1
+                                /    \      /  \
+                          (1 ud)   (2 ud) (1 ud) (2 ud) 
+                              1       0     0      -1
+                            /   \
+                      (1 ud)   (2 ud) 
+                         0        -1  
+                         
+                         
+ */

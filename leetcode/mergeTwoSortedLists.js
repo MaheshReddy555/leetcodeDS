@@ -25,6 +25,27 @@ function ListNode(val, next) {
   this.next = next === undefined ? null : next;
 }
 
+//this has simple logic
+var mergeTwoLists = function (l1, l2) {
+  let tempNode = new ListNode(0, null);
+
+  let currentNode = tempNode;
+
+  while (l1 && l2) {
+    if (l1.val < l2.val) {
+      currentNode.next = l1;
+      l1 = l1.next;
+    } else {
+      currentNode.next = l2;
+      l2 = l2.next;
+    }
+    currentNode = currentNode.next;
+  }
+
+  currentNode.next = l1 || l2;
+  return tempNode.next;
+};
+
 // Input: 1->2->4, 5->7->8
 var mergeTwoLists = function (l1, l2) {
   let newList = new ListNode();

@@ -27,32 +27,51 @@ Input Explanation: The intersected node's value is 2 (note that this must not be
  * @return {ListNode}
  */
 
+//this is the best solution. in leetcode solution
+var getIntersectionNode = function (headA, headB) {
+  let pa = headA;
+  let pb = headB;
 
- var getIntersectionNode = function(headA, headB) {
-    
-    function traverse(n1, n2) {
-        // console.log(n1,n2)
-        if(n1 === n2) return n1;
-        if(!n1) return traverse(headB, n2.next);
-        if(!n2) return traverse(n1.next, headA);
-        return traverse(n1.next, n2.next)
+  while (pa !== pb) {
+    if (pa === null) {
+      pa = headB;
+    } else {
+      pa = pa.next;
     }
-    return traverse(headA, headB);
+
+    if (pb === null) {
+      pb = headA;
+    } else {
+      pb = pb.next;
+    }
+  }
+  return pa;
+};
+
+var getIntersectionNode = function (headA, headB) {
+  function traverse(n1, n2) {
+    // console.log(n1,n2)
+    if (n1 === n2) return n1;
+    if (!n1) return traverse(headB, n2.next);
+    if (!n2) return traverse(n1.next, headA);
+    return traverse(n1.next, n2.next);
+  }
+  return traverse(headA, headB);
 };
 
 //my solution
-var getIntersectionNode = function(headA, headB) {
-    let current = headA;
-    let compCurr = headB;
-    while(current){
-        if(current === compCurr){
-            return current
-        }
-        current = current.next
+var getIntersectionNode = function (headA, headB) {
+  let current = headA;
+  let compCurr = headB;
+  while (current) {
+    if (current === compCurr) {
+      return current;
     }
-    current = headA
-    compCurr = headB ? headB.next : null
-    if(compCurr){
-        return getIntersectionNode(current, compCurr)
-    }
+    current = current.next;
+  }
+  current = headA;
+  compCurr = headB ? headB.next : null;
+  if (compCurr) {
+    return getIntersectionNode(current, compCurr);
+  }
 };
