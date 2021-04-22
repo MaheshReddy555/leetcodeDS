@@ -24,9 +24,16 @@ var reverseList = function (head) {
   let prev = null;
   let next = null;
   while (current) {
+    //first save next value into variable (beacause we are changing current.next below)
     next = current.next;
+
+    //then set next values using prev
     current.next = prev;
+
+    //then set prev as current value
     prev = current;
+
+    //and set current as first saved next
     current = next;
   }
   return prev;
