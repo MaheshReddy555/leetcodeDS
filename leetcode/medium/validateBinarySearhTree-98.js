@@ -13,6 +13,14 @@
  * Input: root = [2,1,3]
 Output: true
 
+          5
+        /    \
+       3      8
+        \    /   \
+         1   6    9
+
+for binary trees always best example is root--->left--->left.right
+which covers all the scenarios
 
 Input: root = [5,1,4,null,null,3,6]
 Output: false
@@ -24,6 +32,9 @@ var isValidBST = function (root) {
 
   let stack = [];
 
+  //From second round, if stack is empty then you got root as right node
+  //if root is null that means you covered left portion and right is null and
+  //parent node is still in stack(which is parent for left and right)
   while (stack.length || root) {
     while (root) {
       stack.push(root);

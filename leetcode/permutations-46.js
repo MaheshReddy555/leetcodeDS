@@ -36,12 +36,13 @@ var permute = function (nums) {
   console.log("final result is ", result);
   return result;
 };
-permute([1, 2, 3]);
+// permute([1, 2, 3]);
 
 //preacticed above solution is also same
 function permutation(nums) {
   let finalResult = [];
   function permute(result, options) {
+    console.log(result, options);
     if (!options.length) return finalResult.push(result);
 
     for (let i = 0; i < options.length; i++) {

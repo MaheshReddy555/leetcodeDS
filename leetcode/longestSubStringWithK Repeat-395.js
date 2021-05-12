@@ -72,10 +72,10 @@ var longestSubstring = function (s, k) {
   return s.length;
 };
 
-console.log("final value is", longestSubstring("ababbcddffgghggg", 2)); //ababb
+// console.log("final value is", longestSubstring("ababbcddffgghggg", 2)); //ababb
 
 // longest substring with atlesat k repeating (follow this one)
-function longestSubString(str, k) {
+function longestSubStringx(str, k) {
   let letterCount = {};
   for (let i = 0; i < str.length; i++) {
     if (letterCount[str[i]]) {
@@ -88,13 +88,14 @@ function longestSubString(str, k) {
   console.log(letterCount);
   let keys = Object.keys(letterCount);
   let values = Object.values(letterCount);
-
+  console.log(keys, values);
   for (let i = 0; i < keys.length; i++) {
     if (values[i] < k) {
       let maxLength = 0;
       let splitword = str.split(keys[i]);
+      console.log("find this", keys[i], splitword);
       for (let j = 0; j < splitword.length; j++) {
-        maxLength = Math.max(maxLength, longestSubString(splitword[j], k));
+        maxLength = Math.max(maxLength, longestSubStringx(splitword[j], k));
       }
       console.log("*****", maxLength);
       return maxLength;
@@ -103,4 +104,4 @@ function longestSubString(str, k) {
 
   return str.length;
 }
-// longestSubString("bbaaacbd", 3);
+longestSubStringx("bbaaacbd", 3);

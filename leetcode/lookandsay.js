@@ -1,10 +1,10 @@
 let val = 1122245;
-console.log('input val is', val);
+console.log("input val is", val);
 let count = 1;
 
-let updatedstring = '';
+let updatedstring = "";
 
-const calculate = val => {
+const calculate = (val) => {
   let convertStr = val.toString();
   for (let i = 1; i < convertStr.length; i++) {
     if (convertStr[i] === convertStr[i - 1]) {
