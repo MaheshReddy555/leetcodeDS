@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * trie data structure for auto completion
+ */
+
 // you can write to stdout for debugging purposes, e.g.
 console.log("This is a debug message");
 

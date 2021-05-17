@@ -47,6 +47,7 @@ var combinationSum = function (candidates, target) {
     if (target < 0) return;
 
     for (let i = index; i < candidates.length; i++) {
+      console.log([...path, candidates[i]], target - candidates[i], i);
       backtrack([...path, candidates[i]], target - candidates[i], i);
     }
   }

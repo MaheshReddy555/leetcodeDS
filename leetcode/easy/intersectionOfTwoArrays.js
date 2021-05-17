@@ -15,6 +15,28 @@ Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [4,9]
  *
  */
+
+//this seems easy
+var intersection = function (nums1, nums2) {
+  let set1 = new Set(nums1);
+  let set2 = new Set(nums2);
+  console.log(set1, set2);
+  let out = [];
+  if (set1.size < set2.size) {
+    for (let item of set1) {
+      if (set2.has(item)) {
+        out.push(item);
+      }
+    }
+  } else {
+    for (let item of set2) {
+      if (set1.has(item)) {
+        out.push(item);
+      }
+    }
+  }
+  return out;
+};
 var intersect = function (nums1, nums2) {
   const intersect = [];
   const hashMap = {};

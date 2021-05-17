@@ -39,3 +39,21 @@ var levelOrder = function (root) {
 
   return result;
 };
+
+//both solutions work fine but for consistency I used this below solution
+//another level order also followed same pattern
+var levelOrder = function (root) {
+  let res = [];
+
+  function recursive(node, level) {
+    if (!node) return;
+
+    res[level] = res[level] || [];
+    res[level].push(node.val);
+
+    recursive(node.left, level + 1);
+    recursive(node.right, level + 1);
+  }
+  recursive(root, 0);
+  return res;
+};

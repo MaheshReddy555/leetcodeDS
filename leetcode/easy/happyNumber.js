@@ -18,6 +18,20 @@ Explanation:
 1^2 + 0^2 + 0^2 = 1
  */
 
+//this is reasonable approach
+var isHappy = function (n, hash = {}) {
+  let strn = n.toString();
+  let arr = strn.split("");
+  let sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum = sum + Number(arr[i]) * Number(arr[i]);
+  }
+  if (sum === 1) return true;
+  if (hash[sum]) return false;
+  hash[sum] = sum;
+  return isHappy(sum, hash);
+};
+
 var isHappy = function (n, counter = 0) {
   if (counter < 8) {
     let strNum = n.toString();

@@ -10,6 +10,14 @@ DO NOT allocate another 2D matrix and do the rotation.
 
 Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
 Output: [[7,4,1],[8,5,2],[9,6,3]]
+
+1 2 3
+4 5 6
+7 8 9
+
+1 4 7
+2 5 8
+3 6 9
  */
 var rotate = function (matrix) {
   //doing transpose means (change rows to colums and colums to rows)
