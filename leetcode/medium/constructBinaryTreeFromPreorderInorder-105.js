@@ -33,6 +33,9 @@ function helper(preorderStart, inorderStart, inorderEnd, preorder, inorder) {
     preorder,
     inorder
   );
+  //as a part of recursion , you might already completed left part
+  //and when it  back to  first recursion you might complete below preorderStart+1
+  //so to avoid that one we have preorderStart + inorderIndex - inorderStart + 1
   root.right = helper(
     preorderStart + inorderIndex - inorderStart + 1,
     inorderIndex + 1,
@@ -40,7 +43,8 @@ function helper(preorderStart, inorderStart, inorderEnd, preorder, inorder) {
     preorder,
     inorder
   );
-  // when you reach right node, you already might complete all left nodes, so to avoid them we have to remove that boundary with inorderIndex - inorderStart
+  // when you reach right node, you already might complete all left nodes,
+  //so to avoid them we have to remove that boundary with inorderIndex - inorderStart
 
   return root;
 }

@@ -13,7 +13,7 @@ Example 1:
 Input: n = 00000010100101000001111010011100
 Output:    964176192 (00111001011110000010100101000000)
 Explanation: The input binary string 00000010100101000001111010011100 represents the unsigned integer 43261596, so return 964176192 which its binary representation is 00111001011110000010100101000000. 
-
+                                     00111001011110000010100101000000 
 
 Example 2:
 
@@ -30,10 +30,16 @@ Explanation: The input binary string 11111111111111111111111111111101 represents
  * 1  & 1 = 1
  *
  *
- * to insert(right) whatever you want use |
+ * to insert(right) whatever you want use | (or)
  *
  * 0 | 1 = 1
  * 1 | 1 = 1
+ *
+ * for XOR only 1 should be there to get one
+ *
+ * 0 ^ 0 = 0
+ * 0 ^ 1 = 1
+ * 1 ^ 1 = 0
  */
 
 //About bit manipulation
